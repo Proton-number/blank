@@ -10,8 +10,8 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Shop</h4>
             <ul className="space-y-2 text-gray-400">
-              <li className="hover:cursor-pointer">Men's Collection</li>
-              <li className="hover:cursor-pointer">Women's Collection</li>
+              <li className="hover:cursor-pointer"> {`Men's Collection`}</li>
+              <li className="hover:cursor-pointer"> {`Women's Collection`}</li>
               <li className="hover:cursor-pointer">Accessories</li>
               <li className="hover:cursor-pointer">New Arrivals</li>
             </ul>

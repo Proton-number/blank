@@ -32,64 +32,64 @@ function Testimonials() {
     },
   ];
   return (
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            What Our Customers Say
-          </h2>
-          <div className="relative">
-            <Card className="max-w-3xl mx-auto">
-              <CardContent className="p-8">
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonials[currentTestimonial].rating)].map(
-                    (_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 text-yellow-400 fill-current"
-                      />
-                    )
-                  )}
-                </div>
-                <p className="text-lg text-gray-600 text-center mb-4">
-                  "{testimonials[currentTestimonial].content}"
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          What Our Customers Say
+        </h2>
+        <div className="relative">
+          <Card className="max-w-3xl mx-auto">
+            <CardContent className="p-8">
+              <div className="flex justify-center mb-4">
+                {[...Array(testimonials[currentTestimonial].rating)].map(
+                  (_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
+                  )
+                )}
+              </div>
+              <p className="text-lg text-gray-600 text-center mb-4">
+                {`"${testimonials[currentTestimonial].content}"`}
+              </p>
+              <div className="text-center">
+                <p className="font-semibold">
+                  {testimonials[currentTestimonial].name}
                 </p>
-                <div className="text-center">
-                  <p className="font-semibold">
-                    {testimonials[currentTestimonial].name}
-                  </p>
-                  <p className="text-gray-500">
-                    {testimonials[currentTestimonial].role}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-            <div className="flex justify-center mt-6 space-x-4">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() =>
-                  setCurrentTestimonial((prev) =>
-                    prev === 0 ? testimonials.length - 1 : prev - 1
-                  )
-                }
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() =>
-                  setCurrentTestimonial((prev) =>
-                    prev === testimonials.length - 1 ? 0 : prev + 1
-                  )
-                }
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
+                <p className="text-gray-500">
+                  {testimonials[currentTestimonial].role}
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <div className="flex justify-center mt-6 space-x-4">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() =>
+                setCurrentTestimonial((prev) =>
+                  prev === 0 ? testimonials.length - 1 : prev - 1
+                )
+              }
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() =>
+                setCurrentTestimonial((prev) =>
+                  prev === testimonials.length - 1 ? 0 : prev + 1
+                )
+              }
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 }
 
