@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+
 import { Clock, Layers, Palette, Compass } from "lucide-react";
 
 function Design() {
@@ -94,28 +95,6 @@ function Design() {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
-
-            <motion.div
-              className="relative h-[600px] rounded-2xl overflow-hidden"
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-900/40 z-10" />
-              <div className="absolute inset-0 grid grid-cols-2 gap-4 p-8 z-20">
-                {[1, 2, 3, 4].map((item) => (
-                  <motion.div
-                    key={item}
-                    className="bg-white/10 rounded-lg backdrop-blur-sm"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: item * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  />
-                ))}
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-10" />
             </motion.div>
           </motion.div>
         </div>
