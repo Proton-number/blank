@@ -78,7 +78,7 @@ function Package() {
               Sustainable Packaging
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We're committed to reducing our environmental impact through
+              We&apos;re committed to reducing our environmental impact through
               innovative and eco-friendly packaging solutions.
             </p>
           </motion.div>
