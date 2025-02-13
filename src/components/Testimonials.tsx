@@ -1,96 +1,116 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-function Testimonials() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+const testimonials = [
+  {
+    id: 1,
+    content:
+      "This product has completely transformed how we work. The efficiency gains have been remarkable.",
+    author: "Sarah Johnson",
+    role: "CTO, TechCorp",
+    avatar: "/api/placeholder/40/40",
+  },
+  {
+    id: 2,
+    content:
+      "The best investment we've made this year. Customer satisfaction has increased by 40%.",
+    author: "Michael Chen",
+    role: "Product Manager, InnovateCo",
+    avatar: "/api/placeholder/40/40",
+  },
+  {
+    id: 3,
+    content:
+      "Intuitive, powerful, and reliable. Everything you need in a modern solution.",
+    author: "Emma Williams",
+    role: "Director of Operations, StartupX",
+    avatar: "/api/placeholder/40/40",
+  },
+];
 
-  const testimonials = [
-    {
-      name: "Sarah J.",
-      role: "Fashion Blogger",
-      content:
-        "BLANK's minimalist designs have completely transformed my wardrobe. The quality is unmatched.",
-      rating: 5,
-    },
-    {
-      name: "Michael R.",
-      role: "Creative Director",
-      content:
-        "Their attention to detail and sustainable practices make BLANK stand out in the fashion industry.",
-      rating: 5,
-    },
-    {
-      name: "Emma L.",
-      role: "Entrepreneur",
-      content:
-        "The versatility of BLANK's pieces makes them perfect for both work and casual occasions.",
-      rating: 5,
-    },
-  ];
+const TestimonialsCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          What Our Customers Say
-        </h2>
-        <div className="relative">
-          <Card className="max-w-3xl mx-auto">
-            <CardContent className="p-8">
-              <div className="flex justify-center mb-4">
-                {[...Array(testimonials[currentTestimonial].rating)].map(
-                  (_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-yellow-400 fill-current"
-                    />
-                  )
-                )}
-              </div>
-              <p className="text-lg text-gray-600 text-center mb-4">
-                {`"${testimonials[currentTestimonial].content}"`}
-              </p>
-              <div className="text-center">
-                <p className="font-semibold">
-                  {testimonials[currentTestimonial].name}
+    <div className="w-full max-w-4xl mx-auto px-4 py-12">
+      <div className="relative">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card className="bg-white">
+              <CardContent className="pt-6">
+                <Quote className="w-12 h-12 text-primary mb-4" />
+                <p className="text-xl leading-relaxed text-gray-700 mb-6">
+                  {testimonials[currentIndex].content}
                 </p>
-                <p className="text-gray-500">
-                  {testimonials[currentTestimonial].role}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-          <div className="flex justify-center mt-6 space-x-4">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() =>
-                setCurrentTestimonial((prev) =>
-                  prev === 0 ? testimonials.length - 1 : prev - 1
-                )
-              }
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() =>
-                setCurrentTestimonial((prev) =>
-                  prev === testimonials.length - 1 ? 0 : prev + 1
-                )
-              }
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+                <div className="flex items-center gap-4">
+                  <div>
+                    <h3 className="font-semibold text-gray-900">
+                      {testimonials[currentIndex].author}
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      {testimonials[currentIndex].role}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="flex justify-center gap-2 mt-6">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={prevTestimonial}
+            className="rounded-full"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={nextTestimonial}
+            className="rounded-full"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </Button>
+        </div>
+
+        <div className="flex justify-center gap-2 mt-4">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentIndex ? "bg-primary" : "bg-gray-300"
+              }`}
+            />
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
 
-export default Testimonials;
+export default TestimonialsCarousel;
