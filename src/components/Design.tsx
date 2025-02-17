@@ -2,34 +2,33 @@
 
 import React from "react";
 import { motion } from "motion/react";
-
-import { Clock, Layers, Palette, Compass } from "lucide-react";
+import { PenTool, Shield, Shirt, Zap } from "lucide-react";
 
 function Design() {
   const philosophyPoints = [
     {
-      icon: Clock,
-      title: "Timeless Aesthetics",
+      icon: PenTool,
+      title: "Brand Precision",
       description:
-        "Creating pieces that transcend seasonal trends and remain relevant for years to come through careful consideration of form and function.",
+        "Perfect reproduction of your brand elements through high-precision digital printing and embroidery techniques that ensure logo clarity and color accuracy.",
     },
     {
-      icon: Layers,
-      title: "Functional Details",
+      icon: Shirt,
+      title: "Apparel Selection",
       description:
-        "Every element serves a purpose in comfort and style, ensuring our pieces are as practical as they are beautiful.",
+        "Carefully curated selection of premium blank apparel that serves as the perfect canvas for your brand, from classic tees to professional polos.",
     },
     {
-      icon: Palette,
-      title: "Considered Materials",
+      icon: Shield,
+      title: "Print Durability",
       description:
-        "Selecting premium fabrics and materials that enhance both the aesthetic appeal and longevity of each piece.",
+        "Advanced printing techniques and quality materials ensure your branded designs remain vibrant and intact through repeated wear and washing.",
     },
     {
-      icon: Compass,
-      title: "Versatile Design",
+      icon: Zap,
+      title: "Design Flexibility",
       description:
-        "Engineering each piece to adapt seamlessly across different settings and styling combinations.",
+        "Versatile customization options that adapt to different brand requirements, from small logo placement to full garment prints.",
     },
   ];
 
@@ -43,6 +42,7 @@ function Design() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
+            {/* Left Column: Text Content */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -56,7 +56,7 @@ function Design() {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                  Our Design Philosophy
+                  Our Design Approach
                 </motion.h2>
                 <motion.p
                   className="text-xl text-gray-600 leading-relaxed"
@@ -64,10 +64,11 @@ function Design() {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  We believe in the power of minimalist design to create
-                  versatile pieces that stand the test of time. Each garment is
-                  thoughtfully crafted to blend seamlessly into your wardrobe
-                  while maintaining its unique character.
+                  We understand that your brand is unique, and our design
+                  process reflects that. Our expertise in custom apparel
+                  printing ensures your brand identity is perfectly translated
+                  onto every garment, maintaining consistency and quality across
+                  all products.
                 </motion.p>
               </div>
 
@@ -94,6 +95,23 @@ function Design() {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+            </motion.div>
+
+            {/* Right Column: Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative hidden md:block"
+            >
+              <div className="relative w-full h-[600px] bg-gray-100 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-100/90 to-gray-100/50">
+                  {/* You can replace this div with an actual image of your printing process or design work */}
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                    Add your design process image here
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

@@ -37,7 +37,7 @@ function Hero() {
   return (
     <div className="relative bg-[url('/hero.jpg')] bg-cover bg-center bg-fixed">
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
 
       {/* Content */}
       <motion.div
@@ -54,13 +54,14 @@ function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-block mb-4 text-white/90 border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm"
             >
-              New Collection Available
+              Custom Brand Apparel
             </motion.span>
             <motion.h1
               className="text-6xl md:text-8xl font-semibold text-white leading-tight"
               variants={fadeUpVariants}
             >
-              Redefining style, empowering confidence.
+              Your Brand, <br />
+              Your Style
             </motion.h1>
           </motion.div>
 
@@ -68,8 +69,9 @@ function Hero() {
             variants={fadeUpVariants}
             className="text-xl md:text-2xl text-gray-200 max-w-2xl"
           >
-            We craft designs that make you look and feel your best, combining
-            timeless elegance with modern innovation.
+            Transform your apparel with custom brand logos and designs. From
+            hoodies to t-shirts, we bring your vision to life with premium
+            quality printing and embroidery.
           </motion.p>
 
           <motion.div
@@ -85,7 +87,7 @@ function Hero() {
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                Get started{" "}
+                Start Customizing{" "}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </motion.span>
             </Button>
@@ -93,7 +95,7 @@ function Hero() {
               variant="ghost"
               className="text-white text-xl h-12 rounded-xl hover:bg-white/10 hover:text-white transition-colors duration-300 backdrop-blur-sm"
             >
-              Learn more
+              View Products
             </Button>
           </motion.div>
         </div>
@@ -108,9 +110,9 @@ function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className=" flex-col items-center  space-y-2 hidden md:flex"
+            className="flex-col items-center space-y-2 hidden md:flex"
           >
-            <span className="text-white/80 text-sm">Scroll to explore</span>
+            <span className="text-white/80 text-sm">See our work</span>
             <ChevronDown className="w-6 h-6 text-white/80" />
           </motion.div>
         </motion.div>

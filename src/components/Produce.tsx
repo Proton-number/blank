@@ -3,7 +3,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "motion/react";
-import { Leaf, Factory, Shield } from "lucide-react";
+import { Printer, Sparkles, Clock } from "lucide-react";
 
 const MotionCard = motion(Card);
 
@@ -54,25 +54,25 @@ function Produce() {
 
   const cards = [
     {
-      title: "Sustainable Materials",
+      title: "Premium Printing",
       description:
-        "We source only the finest eco-friendly materials, ensuring both quality and sustainability in every product we create.",
-      icon: Leaf,
-      color: "text-green-600",
-    },
-    {
-      title: "Ethical Manufacturing",
-      description:
-        "Our production partners share our commitment to fair labor practices and sustainable operations, creating a positive impact on communities.",
-      icon: Factory,
+        "Using state-of-the-art digital printing technology, we ensure your logos and designs are crisp, vibrant, and long-lasting on any fabric.",
+      icon: Printer,
       color: "text-blue-600",
     },
     {
-      title: "Quality Control",
+      title: "Quality Materials",
       description:
-        "Every piece undergoes rigorous quality checks to ensure lasting perfection, maintaining our high standards of excellence.",
-      icon: Shield,
-      color: "text-purple-600",
+        "We work with top-grade apparel brands to provide the perfect canvas for your designs, from soft cotton tees to durable hoodies.",
+      icon: Sparkles,
+      color: "text-amber-600",
+    },
+    {
+      title: "Quick Turnaround",
+      description:
+        "Fast and efficient production process means your custom branded apparel is ready when you need it, without compromising on quality.",
+      icon: Clock,
+      color: "text-green-600",
     },
   ];
 
@@ -92,9 +92,9 @@ function Produce() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900">How We Produce</h2>
+            <h2 className="text-4xl font-bold text-gray-900">Our Process</h2>
             <p className="mt-4 text-xl text-gray-600">
-              Crafting excellence through sustainable practices
+              Transforming your brand into wearable art
             </p>
           </motion.div>
 

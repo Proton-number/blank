@@ -10,33 +10,37 @@ import {
   Mail,
   MapPin,
   Phone,
-  ShoppingBag,
+  Shirt,
   Users,
-  Heart,
+  FileText,
+  Printer,
+  Clock,
+  HelpCircle,
 } from "lucide-react";
 
 function Footer() {
   const links = {
-    shop: [
-      { name: "Men's Collection", icon: ShoppingBag },
-      { name: "Women's Collection", icon: ShoppingBag },
-      { name: "Accessories", icon: ShoppingBag },
-      { name: "New Arrivals", icon: Heart },
+    products: [
+      { name: "T-Shirts & Polos", icon: Shirt },
+      { name: "Hoodies & Sweaters", icon: Shirt },
+      { name: "Corporate Wear", icon: Shirt },
+      { name: "Accessories", icon: Shirt },
+    ],
+    services: [
+      { name: "Digital Printing", icon: Printer },
+      { name: "Screen Printing", icon: Printer },
+      { name: "Embroidery", icon: Printer },
+      { name: "Design Services", icon: FileText },
     ],
     company: [
       { name: "About Us", icon: Users },
-      { name: "Sustainability", icon: Heart },
-      { name: "Careers", icon: Users },
+      { name: "How It Works", icon: Clock },
+      { name: "FAQ", icon: HelpCircle },
       { name: "Contact", icon: Mail },
     ],
-    social: [
-      { name: "Instagram", icon: Instagram },
-      { name: "Twitter", icon: Twitter },
-      { name: "Facebook", icon: Facebook },
-    ],
     contact: [
-      { text: "hello@blank.com", icon: Mail },
-      { text: "123 Fashion St, NY", icon: MapPin },
+      { text: "sales@printco.com", icon: Mail },
+      { text: "123 Print Avenue, NY", icon: MapPin },
       { text: "+1 (555) 123-4567", icon: Phone },
     ],
   };
@@ -70,10 +74,11 @@ function Footer() {
       >
         <div className="grid md:grid-cols-4 gap-12">
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold mb-6">BLANK</h3>
+            <h3 className="text-2xl font-bold mb-6">Blank</h3>
             <p className="text-gray-500 mb-6">
-              Redefining minimalist fashion through sustainable practices and
-              timeless designs.
+              Your trusted partner for custom apparel printing and brand
+              merchandising. Quality products, exceptional service, fast
+              turnaround.
             </p>
             <div className="space-y-4">
               {links.contact.map((item, index) => (
@@ -90,9 +95,25 @@ function Footer() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold mb-6">Shop</h4>
+            <h4 className="text-lg font-semibold mb-6">Products</h4>
             <ul className="space-y-4">
-              {links.shop.map((item, index) => (
+              {links.products.map((item, index) => (
+                <motion.li
+                  key={index}
+                  className="flex items-center space-x-3 text-gray-500 hover:text-gray-900 cursor-pointer transition-colors"
+                  whileHover={{ x: 10 }}
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span>{item.name}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <h4 className="text-lg font-semibold mb-6">Services</h4>
+            <ul className="space-y-4">
+              {links.services.map((item, index) => (
                 <motion.li
                   key={index}
                   className="flex items-center space-x-3 text-gray-500 hover:text-gray-900 cursor-pointer transition-colors"
@@ -119,22 +140,21 @@ function Footer() {
                 </motion.li>
               ))}
             </ul>
-          </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold mb-6">Follow Us</h4>
-            <div className="grid grid-cols-2 gap-4">
-              {links.social.map((item, index) => (
-                <motion.a
-                  key={index}
-                  className="flex items-center space-x-3 text-gray-500 hover:text-gray-900 cursor-pointer transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.name}</span>
-                </motion.a>
-              ))}
+            <div className="mt-8">
+              <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+              <div className="flex space-x-4">
+                {[Facebook, Twitter, Instagram].map((Icon, index) => (
+                  <motion.a
+                    key={index}
+                    className="text-gray-500 hover:text-gray-900 cursor-pointer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -143,7 +163,7 @@ function Footer() {
           className="border-t border-gray-100 mt-12 pt-8 text-center text-gray-500"
           variants={itemVariants}
         >
-          <p>&copy; {new Date().getFullYear()} BLANK. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Blank. All rights reserved.</p>
         </motion.div>
       </motion.div>
     </footer>

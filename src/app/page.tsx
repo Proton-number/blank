@@ -1,7 +1,6 @@
 import Design from "@/components/Design";
 import Faq from "@/components/Faq";
 import Hero from "@/components/Hero";
-import Package from "@/components/Package";
 import Produce from "@/components/Produce";
 import Testimonials from "@/components/Testimonials";
 
@@ -11,7 +10,6 @@ export default function Home() {
       <Hero />
       <Produce />
       <Design />
-      <Package />
       <Testimonials />
       <Faq />
     </div>
